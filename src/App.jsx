@@ -1,28 +1,15 @@
-import TaskForm from "./TaskForm"
-import TaskList from "./TaskList"
-import { tasks as data } from "./tasks";
-import { useState, useEffect } from "react";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    setTasks(data);
-  }, []);
-
-  function createTask(task) {
-    setTasks([...tasks, task])
-  }
-
   return (
-    <>
-      <TaskForm createTask={createTask}/>
-      <TaskList tasks={tasks}/>
-    </>
-      
-    
-    
-  )
+    <main className="bg-black h-screen">
+      <div className="container mx-auto p-10 ">
+        <TaskForm />
+        <TaskList />
+      </div>
+    </main>
+  );
 }
 
-export default App
+export default App;
